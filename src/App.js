@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { ImgOne } from "./Atoms/img.js";
-import { Navbar } from "./Molecules/nav.js";
+import Navbar from "./Molecules/nav.js";
 import { DateBar } from "./Atoms/inputs.js";
 import axios from "axios";
 
@@ -10,7 +10,9 @@ function App(props) {
 
   useEffect(() => {
     axios
-      .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&`)
+      .get(
+        `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2019-10-09`
+      )
       .then(response => {
         console.log(response);
         setPhoto(response.data);
